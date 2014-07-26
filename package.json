@@ -13,11 +13,14 @@
   },
   "main": "./includeit.js",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "node_modules/.bin/mocha test.js"
   },
   "dependencies": {
     "glob": "~4.0.4",
     "underscore": "~1.6.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.21.0"
   },
   "engines": {
     "node": ">=0.10"

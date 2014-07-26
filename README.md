@@ -4,6 +4,7 @@
 [![Downloads](http://img.shields.io/npm/dm/includeit.svg?style=flat)](https://www.npmjs.org/package/includeit)
 [![License](http://img.shields.io/npm/l/includeit.svg?style=flat)](https://www.npmjs.org/package/includeit)
 [![Dependencies Status](http://img.shields.io/david/lrsjng/includeit.svg?style=flat)](https://david-dm.org/lrsjng/includeit)
+[![Build Status](http://img.shields.io/travis/lrsjng/includeit.svg?style=flat)](https://david-dm.org/lrsjng/includeit)
 
 Include one js file into another js file.
 To report a bug or make a feature request please create [a new issue](https://github.com/lrsjng/includeit/issues/new).
