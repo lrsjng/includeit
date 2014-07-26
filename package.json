@@ -1,0 +1,25 @@
+{
+  "name": "includeit",
+  "displayName": "includeit",
+  "version": "0.1.0",
+  "description": "include one js file into another js file",
+  "homepage": "https://github.com/lrsjng/includeit",
+  "bugs": "https://github.com/lrsjng/includeit/issues",
+  "author": "Lars Jung <lrsjng@gmail.com> (http://larsjung.de)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lrsjng/includeit.git"
+  },
+  "main": "./includeit.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "dependencies": {
+    "glob": "~4.0.4",
+    "underscore": "~1.6.0"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
