@@ -12,7 +12,7 @@ var path = require('path'),
         sync: true
     },
 
-    reInclude = /^([ \t]*)\/\/[ \t]*@include[ \t]+(|base:)(["'])(.+)\3[; \t]*$/gm,
+    reInclude = /^([ \t]*)\/\/[ \t]*@include[ \t]+(["'])(.+)\2[; \t]*$/gm,
     reEmptyLine = /^\s+$/gm,
     reEndsFailSafe = /;?(\s*)$/,
 
@@ -54,7 +54,7 @@ var path = require('path'),
         }
         stack.push(file);
 
-        content = content.replace(reInclude, function (match, indent, mode, quote, reference) {
+        content = content.replace(reInclude, function (match, indent, quote, reference) {
 
             var refPattern = path.normalize(path.resolve(path.dirname(file), reference)),
                 refPaths = pathsForGlob(refPattern);

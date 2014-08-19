@@ -1,0 +1,3 @@
+line a
+// @include "multi-line"
+line b
