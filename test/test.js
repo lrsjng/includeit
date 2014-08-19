@@ -68,7 +68,7 @@ describe('includeit()', function () {
 
         var file = path.resolve(__filename);
         var content = '// @include "assets/file"';
-        var expected = 'file content;';
+        var expected = 'file content;\n';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
@@ -78,7 +78,7 @@ describe('includeit()', function () {
 
         var file = path.resolve(__filename);
         var content = '//@include "assets/file"';
-        var expected = 'file content;';
+        var expected = 'file content;\n';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
@@ -98,7 +98,7 @@ describe('includeit()', function () {
 
         var file = path.resolve(__filename);
         var content = ' // @include "assets/file"';
-        var expected = ' file content;';
+        var expected = ' file content;\n';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
@@ -108,7 +108,7 @@ describe('includeit()', function () {
 
         var file = path.resolve(__filename);
         var content = '\t// @include "assets/file"';
-        var expected = '\tfile content;';
+        var expected = '\tfile content;\n';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
@@ -118,7 +118,7 @@ describe('includeit()', function () {
 
         var file = path.resolve(__filename);
         var content = 'a\n// @include "assets/file"\nb';
-        var expected = 'a\nfile content;\nb';
+        var expected = 'a\nfile content;\n\nb';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
@@ -128,7 +128,7 @@ describe('includeit()', function () {
 
         var file = path.resolve(__filename);
         var content = 'a\n  // @include "assets/file"\nb';
-        var expected = 'a\n  file content;\nb';
+        var expected = 'a\n  file content;\n\nb';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
@@ -138,7 +138,7 @@ describe('includeit()', function () {
 
         var file = path.resolve(__filename);
         var content = 'a\n\t\t// @include "assets/file"\nb';
-        var expected = 'a\n\t\tfile content;\nb';
+        var expected = 'a\n\t\tfile content;\n\nb';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);

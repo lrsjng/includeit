@@ -1,7 +1,7 @@
 {
   "name": "includeit",
   "displayName": "includeit",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "include one js file into another js file",
   "homepage": "https://github.com/lrsjng/includeit",
   "bugs": "https://github.com/lrsjng/includeit/issues",
