@@ -1,4 +1,5 @@
 
-node_modules
-*.sublime-*
+bower_components
+build
 local
+node_modules

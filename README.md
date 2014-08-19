@@ -1,15 +1,9 @@
 # includeit
 
-[![Version](http://img.shields.io/npm/v/includeit.svg?style=flat)](https://www.npmjs.org/package/includeit)
-[![Downloads](http://img.shields.io/npm/dm/includeit.svg?style=flat)](https://www.npmjs.org/package/includeit)
-[![License](http://img.shields.io/npm/l/includeit.svg?style=flat)](https://www.npmjs.org/package/includeit)
-[![Dependencies Status](http://img.shields.io/david/lrsjng/includeit.svg?style=flat)](https://david-dm.org/lrsjng/includeit)
-[![Build Status](http://img.shields.io/travis/lrsjng/includeit.svg?style=flat)](https://travis-ci.org/lrsjng/includeit)
+[![web][web-img]][web] [![GitHub][github-img]][github] [![npm][npm-img]][npm]  
+[![Downloads][npm-dm-img]][npm] [![Dependencies Status][david-img]][david] [![Build Status][travis-img]][travis]
 
-Include one js file into another js file.
-To report a bug or make a feature request please create [a new issue](https://github.com/lrsjng/includeit/issues/new).
-
-References: [GitHub](https://github.com/lrsjng/includeit), [npm](https://www.npmjs.org/package/includeit)
+Preprocessor to include one js file into another js file.
 
 
 ## Install
@@ -24,15 +18,15 @@ References: [GitHub](https://github.com/lrsjng/includeit), [npm](https://www.npm
 
 with
 
-	options = {
-		// a full file path for relative lookup (does not need to exist)
-		file: undefined,
+    options = {
+        // a full file path for relative lookup (does not need to exist)
+        file: undefined,
 
-		// and the file's content
-		content: undefined,
+        // and the file's content
+        content: undefined,
 
-		charset: 'utf-8'
-	}
+        charset: 'utf-8'
+    }
 
 
 ## License
@@ -57,3 +51,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+[web]: http://larsjung.de/includeit/
+[github]: https://github.com/lrsjng/includeit
+[npm]: https://www.npmjs.org/package/includeit
+[david]: https://david-dm.org/lrsjng/includeit
+[travis]: https://travis-ci.org/lrsjng/includeit
+
+[web-img]: http://img.shields.io/badge/web-larsjung.de/includeit-a0a060.svg?style=flat-square
+[github-img]: http://img.shields.io/badge/GitHub-lrsjng/includeit-a0a060.svg?style=flat-square
+[npm-img]: http://img.shields.io/badge/npm-includeit-a0a060.svg?style=flat-square
+
+[npm-v-img]: http://img.shields.io/npm/v/includeit.svg?style=flat-square
+[npm-dm-img]: http://img.shields.io/npm/dm/includeit.svg?style=flat-square
+[npm-l-img]: http://img.shields.io/npm/l/includeit.svg?style=flat-square
+[david-img]: http://img.shields.io/david/lrsjng/includeit.svg?style=flat-square
+[travis-img]: http://img.shields.io/travis/lrsjng/includeit.svg?style=flat-square

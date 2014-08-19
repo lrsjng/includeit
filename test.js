@@ -3,19 +3,19 @@
 
 
 var assert = require('assert'),
-	_ = require('underscore'),
-	includeit = require('./');
+    _ = require('lodash'),
+    includeit = require('./');
 
 
 describe('includeit()', function () {
 
-	it('is function', function () {
+    it('is function', function () {
 
-		assert.ok(_.isFunction(includeit));
-	});
+        assert.ok(_.isFunction(includeit));
+    });
 
-	it('expects 1 parameter', function () {
+    it('expects 1 parameter', function () {
 
-		assert.strictEqual(includeit.length, 1);
-	});
+        assert.strictEqual(includeit.length, 1);
+    });
 });
