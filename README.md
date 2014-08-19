@@ -3,7 +3,13 @@
 [![license][license-img]][github] [![web][web-img]][web] [![github][github-img]][github] [![npm][npm-img]][npm]
 [![downloads][npm-dm-img]][npm] [![dependencies Status][david-img]][david] [![build status][travis-img]][travis]
 
-Preprocessor to include one js file into another js file.
+Preprocessor to include one js file into another js file. The syntax is
+
+    // @include "some/file.js"
+    // @include 'some/other/file.js'
+
+Those lines will be replaced with the content of the target files. The lookup
+is always relative to the file containing the `@include` line.
 
 
 ## Install
@@ -13,8 +19,8 @@ Preprocessor to include one js file into another js file.
 
 ## Usage
 
-    includeit = require('includeit');
-    newContent = includeit(options);
+    var includeit = require('includeit');
+    var newContent = includeit(options);
 
 with
 
