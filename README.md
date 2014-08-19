@@ -1,7 +1,7 @@
 # includeit
 
-[![web][web-img]][web] [![GitHub][github-img]][github] [![npm][npm-img]][npm]  
-[![Downloads][npm-dm-img]][npm] [![Dependencies Status][david-img]][david] [![Build Status][travis-img]][travis]
+[![license][license-img]][github] [![web][web-img]][web] [![github][github-img]][github] [![npm][npm-img]][npm]
+[![downloads][npm-dm-img]][npm] [![dependencies Status][david-img]][david] [![build status][travis-img]][travis]
 
 Preprocessor to include one js file into another js file.
 
@@ -59,8 +59,9 @@ THE SOFTWARE.
 [david]: https://david-dm.org/lrsjng/includeit
 [travis]: https://travis-ci.org/lrsjng/includeit
 
+[license-img]: http://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
 [web-img]: http://img.shields.io/badge/web-larsjung.de/includeit-a0a060.svg?style=flat-square
-[github-img]: http://img.shields.io/badge/GitHub-lrsjng/includeit-a0a060.svg?style=flat-square
+[github-img]: http://img.shields.io/badge/github-lrsjng/includeit-a0a060.svg?style=flat-square
 [npm-img]: http://img.shields.io/badge/npm-includeit-a0a060.svg?style=flat-square
 
 [npm-v-img]: http://img.shields.io/npm/v/includeit.svg?style=flat-square
