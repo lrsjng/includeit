@@ -1,7 +1,7 @@
 # includeit
 
-[![license][license-img]][github] [![web][web-img]][web] [![github][github-img]][github] [![npm][npm-img]][npm]
-[![downloads][npm-dm-img]][npm] [![dependencies Status][david-img]][david] [![build status][travis-img]][travis]
+[![license][license-img]][github] [![github][github-img]][github] [![npm][npm-img]][npm]  
+[![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm] [![dependencies status][gemnasium-img]][gemnasium] [![build status][travis-img]][travis]
 
 Preprocessor to include one js file into another js file. The syntax is
 
@@ -59,19 +59,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-[web]: http://larsjung.de/includeit/
 [github]: https://github.com/lrsjng/includeit
 [npm]: https://www.npmjs.org/package/includeit
-[david]: https://david-dm.org/lrsjng/includeit
+[gemnasium]: https://gemnasium.com/lrsjng/includeit
 [travis]: https://travis-ci.org/lrsjng/includeit
 
 [license-img]: http://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
-[web-img]: http://img.shields.io/badge/web-larsjung.de/includeit-a0a060.svg?style=flat-square
 [github-img]: http://img.shields.io/badge/github-lrsjng/includeit-a0a060.svg?style=flat-square
 [npm-img]: http://img.shields.io/badge/npm-includeit-a0a060.svg?style=flat-square
 
 [npm-v-img]: http://img.shields.io/npm/v/includeit.svg?style=flat-square
 [npm-dm-img]: http://img.shields.io/npm/dm/includeit.svg?style=flat-square
-[npm-l-img]: http://img.shields.io/npm/l/includeit.svg?style=flat-square
-[david-img]: http://img.shields.io/david/lrsjng/includeit.svg?style=flat-square
+[gemnasium-img]: http://img.shields.io/gemnasium/lrsjng/includeit.svg?style=flat-square
 [travis-img]: http://img.shields.io/travis/lrsjng/includeit.svg?style=flat-square

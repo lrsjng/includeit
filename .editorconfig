@@ -1,4 +1,4 @@
-# http://EditorConfig.org
+# editorconfig.org
 
 root = true
 
@@ -12,9 +12,19 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 
-[{package.json,.travis.yml}]
+[package.json]
+indent_style = space
 indent_size = 2
 
 
-[{*.md,*.jade}]
+[.travis.yml]
+indent_style = space
+indent_size = 2
+
+
+[*.md]
+trim_trailing_whitespace = false
+
+
+[*.jade]
 trim_trailing_whitespace = false
