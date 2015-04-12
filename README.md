@@ -5,8 +5,10 @@
 
 Preprocessor to include one js file into another js file. The syntax is
 
-    // @include "some/file.js"
-    // @include 'some/other/file.js'
+~~~javascript
+// @include "some/file.js"
+// @include 'some/other/file.js'
+~~~
 
 Those lines will be replaced with the content of the target files. The lookup
 is always relative to the file containing the `@include` line.
@@ -14,31 +16,37 @@ is always relative to the file containing the `@include` line.
 
 ## Install
 
-    > npm install includeit
+~~~sh
+> npm install includeit
+~~~
 
 
 ## Usage
 
-    var includeit = require('includeit');
-    var newContent = includeit(options);
+~~~javascript
+var includeit = require('includeit');
+var newContent = includeit(options);
+~~~
 
 with
 
-    options = {
-        // a full file path for relative lookup (does not need to exist)
-        file: undefined,
+~~~javascript
+options = {
+    // a full file path for relative lookup (does not need to exist)
+    file: undefined,
 
-        // and the file's content
-        content: undefined,
+    // and the file's content
+    content: undefined,
 
-        charset: 'utf-8'
-    }
+    charset: 'utf-8'
+}
+~~~
 
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014 Lars Jung (http://larsjung.de)
+Copyright (c) 2015 Lars Jung (http://larsjung.de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -64,11 +72,11 @@ THE SOFTWARE.
 [gemnasium]: https://gemnasium.com/lrsjng/includeit
 [travis]: https://travis-ci.org/lrsjng/includeit
 
-[license-img]: http://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
-[github-img]: http://img.shields.io/badge/github-lrsjng/includeit-a0a060.svg?style=flat-square
-[npm-img]: http://img.shields.io/badge/npm-includeit-a0a060.svg?style=flat-square
+[license-img]: https://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
+[github-img]: https://img.shields.io/badge/github-lrsjng/includeit-a0a060.svg?style=flat-square
+[npm-img]: https://img.shields.io/badge/npm-includeit-a0a060.svg?style=flat-square
 
-[npm-v-img]: http://img.shields.io/npm/v/includeit.svg?style=flat-square
-[npm-dm-img]: http://img.shields.io/npm/dm/includeit.svg?style=flat-square
-[gemnasium-img]: http://img.shields.io/gemnasium/lrsjng/includeit.svg?style=flat-square
-[travis-img]: http://img.shields.io/travis/lrsjng/includeit.svg?style=flat-square
+[npm-v-img]: https://img.shields.io/npm/v/includeit.svg?style=flat-square
+[npm-dm-img]: https://img.shields.io/npm/dm/includeit.svg?style=flat-square
+[gemnasium-img]: https://img.shields.io/gemnasium/lrsjng/includeit.svg?style=flat-square
+[travis-img]: https://img.shields.io/travis/lrsjng/includeit.svg?style=flat-square
