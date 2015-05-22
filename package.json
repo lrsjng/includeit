@@ -1,7 +1,7 @@
 {
   "name": "includeit",
   "displayName": "includeit",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "include one js file into another js file",
   "homepage": "https://github.com/lrsjng/includeit",
   "bugs": "https://github.com/lrsjng/includeit/issues",
@@ -16,13 +16,14 @@
     "test": "mocha --recursive test"
   },
   "dependencies": {
-    "glob": "~5.0.5",
-    "lodash": "~3.6.0"
+    "glob": "~5.0.7",
+    "lodash": "~3.9.1"
   },
   "devDependencies": {
-    "mocha": "~2.2.4"
+    "mocha": "~2.2.5"
   },
   "engines": {
-    "node": ">=0.10"
+    "node": ">=0.10",
+    "iojs": ">=1.0.0"
   }
 }

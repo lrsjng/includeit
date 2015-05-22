@@ -1,4 +1,3 @@
-/*jshint node: true */
 'use strict';
 
 var _ = require('lodash');
@@ -62,8 +61,8 @@ function recursion(settings, stack, file, content) {
 
     content = content.replace(reInclude, function (match, indent, quote, reference) {
 
-        var refPattern = path.normalize(path.resolve(path.dirname(file), reference)),
-            refPaths = pathsForGlob(refPattern);
+        var refPattern = path.normalize(path.resolve(path.dirname(file), reference));
+        var refPaths = pathsForGlob(refPattern);
 
         return _.map(refPaths, function (refPath) {
 

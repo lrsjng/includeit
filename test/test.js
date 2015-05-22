@@ -1,11 +1,9 @@
-/*jshint node: true */
-/*global describe, before, beforeEach, it */
+'use strict';
 
-
-var assert = require('assert'),
-    path = require('path'),
-    _ = require('lodash'),
-    includeit = require('../');
+var assert = require('assert');
+var path = require('path');
+var _ = require('lodash');
+var includeit = require('../');
 
 
 describe('includeit()', function () {
