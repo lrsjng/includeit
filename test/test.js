@@ -62,11 +62,41 @@ describe('includeit()', function () {
         assert.strictEqual(result, expected);
     });
 
-    it('correct syntax', function () {
+    it('double quotes', function () {
 
         var file = path.resolve(__filename);
         var content = '// @include "assets/file"';
         var expected = 'file content;\n';
+
+        var result = includeit({file: file, content: content, charset: 'utf-8'});
+        assert.strictEqual(result, expected);
+    });
+
+    it('single quotes', function () {
+
+        var file = path.resolve(__filename);
+        var content = '// @include \'assets/file\'';
+        var expected = 'file content;\n';
+
+        var result = includeit({file: file, content: content, charset: 'utf-8'});
+        assert.strictEqual(result, expected);
+    });
+
+    it('mixed quotes', function () {
+
+        var file = path.resolve(__filename);
+        var content = '// @include "assets/file\'';
+        var expected = '// @include "assets/file\'';
+
+        var result = includeit({file: file, content: content, charset: 'utf-8'});
+        assert.strictEqual(result, expected);
+    });
+
+    it('mixed quotes', function () {
+
+        var file = path.resolve(__filename);
+        var content = '// @include \'assets/file"';
+        var expected = '// @include \'assets/file"';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
@@ -167,6 +197,26 @@ describe('includeit()', function () {
         var file = path.resolve(__filename);
         var content = '\t\t// @include "assets/multi-line"';
         var expected = '\t\tline 1\n\t\tline 2;\n';
+
+        var result = includeit({file: file, content: content, charset: 'utf-8'});
+        assert.strictEqual(result, expected);
+    });
+
+    it('multi line empty indent - spaces', function () {
+
+        var file = path.resolve(__filename);
+        var content = '  // @include "assets/multi-line-empty"';
+        var expected = '  line 1\n\n  line 2;\n';
+
+        var result = includeit({file: file, content: content, charset: 'utf-8'});
+        assert.strictEqual(result, expected);
+    });
+
+    it('multi line empty indent - tabs', function () {
+
+        var file = path.resolve(__filename);
+        var content = '\t\t// @include "assets/multi-line-empty"';
+        var expected = '\t\tline 1\n\n\t\tline 2;\n';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
