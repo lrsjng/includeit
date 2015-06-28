@@ -5,37 +5,34 @@ var fs = require('fs');
 var glob = require('glob');
 var path = require('path');
 
-var globOptions = {
+var GLOB_OPTIONS = {
         dot: true,
         silent: false,
         sync: true
     };
-
-var reInclude = /^([ \t]*)\/\/[ \t]*@include[ \t]+(["'])(.+)\2[; \t]*$/gm;
-var reEmptyLine = /^\s+$/gm;
-var reEndsFailSafe = /;?(\s*)$/;
-
-var defaults = {
+var RE_INCLUDE = /^([ \t]*)\/\/[ \t]*@include[ \t]+(["'])(.+)\2[; \t]*$/gm;
+var RE_EMPTY_LINE = /^\s+$/gm;
+var RE_ENDS_FAIL_SAFE = /;?(\s*)$/;
+var DEFAULTS = {
         file: undefined,
         content: undefined,
         charset: 'utf-8'
     };
 
-
-function Err(message, stack, file, line, column) {
-
-    this.message = message;
-    this.stack = stack;
-    this.file = file;
-    this.line = line;
-    this.column = column;
+function throwError(message, stack, file, line, column) {
+    var err = new Error();
+    err.message = message;
+    err.includeStack = stack;
+    err.file = file;
+    err.line = line;
+    err.column = column;
+    throw err;
 }
 
 function findPos(content, match) {
+    var pos = content.indexOf(match);
 
-    var character = content.indexOf(match);
-
-    content = content.slice(0, character);
+    content = content.slice(0, pos);
     content = content.split('\n');
 
     return {
@@ -45,45 +42,35 @@ function findPos(content, match) {
 }
 
 function pathsForGlob(pattern) {
-
-    return _.map(glob(pattern, globOptions), function (filepath) {
-
+    return _.map(glob(pattern, GLOB_OPTIONS), function (filepath) {
         return path.resolve(filepath);
     });
 }
 
 function recursion(settings, stack, file, content) {
-
     if (_.indexOf(stack, file) >= 0) {
-        throw new Err('circular reference: "' + file + '"', stack);
+        throwError('circular reference: "' + file + '"', stack);
     }
     stack.push(file);
 
-    content = content.replace(reInclude, function (match, indent, quote, reference) {
-
+    content = content.replace(RE_INCLUDE, function (match, indent, quote, reference) {
         var refPattern = path.normalize(path.resolve(path.dirname(file), reference));
         var refPaths = pathsForGlob(refPattern);
+        if (refPaths.length === 0) {
+            var pos = findPos(content, match);
+            throwError('not found: "' + reference + '"', stack, file, pos.line, pos.column);
+        }
 
         return _.map(refPaths, function (refPath) {
+            var refContent = fs.readFileSync(refPath, settings.charset);
+            refContent = refContent.replace(RE_ENDS_FAIL_SAFE, function (match, whiteEnd) {
+                return ';' + whiteEnd;
+            });
+            refContent = recursion(settings, stack, refPath, refContent);
+            refContent = indent + refContent.replace(/\n/g, '\n' + indent);
+            refContent = refContent.replace(RE_EMPTY_LINE, '');
 
-            try {
-                var refContent = fs.readFileSync(refPath, settings.charset);
-                refContent = refContent.replace(reEndsFailSafe, function (match, whiteEnd) {
-                    return ';' + whiteEnd;
-                });
-                refContent = recursion(settings, stack, refPath, refContent);
-                refContent = indent + refContent.replace(/\n/g, '\n' + indent);
-                refContent = refContent.replace(reEmptyLine, '');
-
-                return refContent;
-            } catch (err) {
-                if (err instanceof Err) {
-                    throw err;
-                }
-
-                var pos = findPos(content, match);
-                throw new Err('not found: "' + reference + '"', stack, file, pos.line, pos.column);
-            }
+            return refContent;
         }).join('\n\n');
     });
 
@@ -92,11 +79,10 @@ function recursion(settings, stack, file, content) {
 }
 
 function includeit(options) {
-
-    var settings = _.extend({}, defaults, options);
+    var settings = _.extend({}, DEFAULTS, options);
 
     if (!settings.file || !settings.content) {
-        throw new Err('file and/or content undefined');
+        throwError('file and/or content undefined');
     }
 
     return recursion(settings, [], settings.file, settings.content);

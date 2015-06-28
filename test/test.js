@@ -1,49 +1,38 @@
 'use strict';
 
-var assert = require('assert');
+var assert = require('chai').assert;
 var path = require('path');
-var _ = require('lodash');
 var includeit = require('../');
-
 
 describe('includeit()', function () {
 
     it('is function', function () {
-
-        assert.ok(_.isFunction(includeit));
+        assert.isFunction(includeit);
     });
 
     it('expects 1 parameter', function () {
-
         assert.strictEqual(includeit.length, 1);
     });
 
     it('throws with defaults', function () {
-
         assert.throws(function () {
-
             includeit();
-        });
+        }, /file and\/or content undefined/);
     });
 
     it('throws without file', function () {
-
         assert.throws(function () {
-
             includeit({content: 'x', charset: 'utf-8'});
-        });
+        }, /file and\/or content undefined/);
     });
 
     it('throws without content', function () {
-
         assert.throws(function () {
-
             includeit({file: 'x', charset: 'utf-8'});
-        });
+        }, /file and\/or content undefined/);
     });
 
     it('no includes', function () {
-
         var file = 'x';
         var content = 'x';
         var expected = 'x';
@@ -53,7 +42,6 @@ describe('includeit()', function () {
     });
 
     it('uncommented includes', function () {
-
         var file = 'x';
         var content = '@include "file"';
         var expected = '@include "file"';
@@ -63,7 +51,6 @@ describe('includeit()', function () {
     });
 
     it('double quotes', function () {
-
         var file = path.resolve(__filename);
         var content = '// @include "assets/file"';
         var expected = 'file content;\n';
@@ -73,7 +60,6 @@ describe('includeit()', function () {
     });
 
     it('single quotes', function () {
-
         var file = path.resolve(__filename);
         var content = '// @include \'assets/file\'';
         var expected = 'file content;\n';
@@ -83,7 +69,6 @@ describe('includeit()', function () {
     });
 
     it('mixed quotes', function () {
-
         var file = path.resolve(__filename);
         var content = '// @include "assets/file\'';
         var expected = '// @include "assets/file\'';
@@ -93,7 +78,6 @@ describe('includeit()', function () {
     });
 
     it('mixed quotes', function () {
-
         var file = path.resolve(__filename);
         var content = '// @include \'assets/file"';
         var expected = '// @include \'assets/file"';
@@ -103,7 +87,6 @@ describe('includeit()', function () {
     });
 
     it('no space', function () {
-
         var file = path.resolve(__filename);
         var content = '//@include "assets/file"';
         var expected = 'file content;\n';
@@ -113,7 +96,6 @@ describe('includeit()', function () {
     });
 
     it('no space after include', function () {
-
         var file = path.resolve(__filename);
         var content = '// @include"assets/file"';
         var expected = '// @include"assets/file"';
@@ -123,7 +105,6 @@ describe('includeit()', function () {
     });
 
     it('space before comment', function () {
-
         var file = path.resolve(__filename);
         var content = ' // @include "assets/file"';
         var expected = ' file content;\n';
@@ -133,7 +114,6 @@ describe('includeit()', function () {
     });
 
     it('tab before comment', function () {
-
         var file = path.resolve(__filename);
         var content = '\t// @include "assets/file"';
         var expected = '\tfile content;\n';
@@ -143,7 +123,6 @@ describe('includeit()', function () {
     });
 
     it('context', function () {
-
         var file = path.resolve(__filename);
         var content = 'a\n// @include "assets/file"\nb';
         var expected = 'a\nfile content;\n\nb';
@@ -153,7 +132,6 @@ describe('includeit()', function () {
     });
 
     it('indent - spaces', function () {
-
         var file = path.resolve(__filename);
         var content = 'a\n  // @include "assets/file"\nb';
         var expected = 'a\n  file content;\n\nb';
@@ -163,7 +141,6 @@ describe('includeit()', function () {
     });
 
     it('indent - tabs', function () {
-
         var file = path.resolve(__filename);
         var content = 'a\n\t\t// @include "assets/file"\nb';
         var expected = 'a\n\t\tfile content;\n\nb';
@@ -173,7 +150,6 @@ describe('includeit()', function () {
     });
 
     it('multi line', function () {
-
         var file = path.resolve(__filename);
         var content = '// @include "assets/multi-line"';
         var expected = 'line 1\nline 2;\n';
@@ -183,7 +159,6 @@ describe('includeit()', function () {
     });
 
     it('multi line indent - spaces', function () {
-
         var file = path.resolve(__filename);
         var content = '  // @include "assets/multi-line"';
         var expected = '  line 1\n  line 2;\n';
@@ -193,7 +168,6 @@ describe('includeit()', function () {
     });
 
     it('multi line indent - tabs', function () {
-
         var file = path.resolve(__filename);
         var content = '\t\t// @include "assets/multi-line"';
         var expected = '\t\tline 1\n\t\tline 2;\n';
@@ -203,7 +177,6 @@ describe('includeit()', function () {
     });
 
     it('multi line empty indent - spaces', function () {
-
         var file = path.resolve(__filename);
         var content = '  // @include "assets/multi-line-empty"';
         var expected = '  line 1\n\n  line 2;\n';
@@ -213,7 +186,6 @@ describe('includeit()', function () {
     });
 
     it('multi line empty indent - tabs', function () {
-
         var file = path.resolve(__filename);
         var content = '\t\t// @include "assets/multi-line-empty"';
         var expected = '\t\tline 1\n\n\t\tline 2;\n';
@@ -223,12 +195,29 @@ describe('includeit()', function () {
     });
 
     it('multi level includes', function () {
-
         var file = path.resolve(__filename);
         var content = '// @include "assets/include"';
         var expected = 'line a\nline 1\nline 2;\n\nline b;\n';
 
         var result = includeit({file: file, content: content, charset: 'utf-8'});
         assert.strictEqual(result, expected);
+    });
+
+    it('throws when not found', function () {
+        var file = path.resolve(__filename);
+        var content = '// @include "assets/notfound"';
+
+        assert.throws(function () {
+            includeit({file: file, content: content, charset: 'utf-8'});
+        }, /not found/);
+    });
+
+    it('throws on circular includes', function () {
+        var file = path.resolve(__filename);
+        var content = '// @include "assets/circular"';
+
+        assert.throws(function () {
+            includeit({file: file, content: content, charset: 'utf-8'});
+        }, /circular reference/);
     });
 });

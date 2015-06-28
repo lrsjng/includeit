@@ -1,0 +1,3 @@
+line a
+// @include "circular"
+line b

@@ -1,8 +1,8 @@
 {
   "name": "includeit",
   "displayName": "includeit",
-  "version": "0.4.2",
-  "description": "include one js file into another js file",
+  "version": "0.5.0",
+  "description": "Preprocessor to include one JavaScript/CSS file into another JavaScript/CSS file.",
   "homepage": "https://github.com/lrsjng/includeit",
   "bugs": "https://github.com/lrsjng/includeit/issues",
   "author": "Lars Jung <lrsjng@gmail.com> (http://larsjung.de)",
@@ -13,14 +13,17 @@
   },
   "main": "./includeit.js",
   "scripts": {
-    "test": "mocha --recursive test"
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha -- -R dot"
   },
   "dependencies": {
-    "glob": "~5.0.7",
-    "lodash": "~3.9.1"
+    "glob": "^5.0.12",
+    "lodash": "^3.9.3"
   },
   "devDependencies": {
-    "mocha": "~2.2.5"
+    "chai": "^3.0.0",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5"
   },
   "engines": {
     "node": ">=0.10",
