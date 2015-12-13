@@ -20,7 +20,8 @@ CSS
 ~~~
 
 Those lines will be replaced with the content of the target files. The lookup
-is always relative to the file containing the `@include` line.
+is always relative to the file containing the `@include` line. Supports
+globbing.
 
 
 ## Install
