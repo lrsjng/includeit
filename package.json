@@ -1,7 +1,7 @@
 {
   "name": "includeit",
   "displayName": "includeit",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Preprocessor to include one JavaScript/CSS file into another JavaScript/CSS file.",
   "homepage": "https://github.com/lrsjng/includeit",
   "bugs": "https://github.com/lrsjng/includeit/issues",
