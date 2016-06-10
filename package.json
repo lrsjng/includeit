@@ -1,7 +1,7 @@
 {
   "name": "includeit",
   "displayName": "includeit",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Preprocessor to include one JavaScript/CSS file into another JavaScript/CSS file.",
   "homepage": "https://github.com/lrsjng/includeit",
   "bugs": "https://github.com/lrsjng/includeit/issues",
@@ -14,10 +14,10 @@
   "main": "es5/includeit.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "node -r babel-core/register test/tests.js",
-    "cover": "babel-node node_modules/.bin/isparta cover --dir coverage --report text --report html test/tests.js",
+    "test": "node test/tests.js",
+    "cover": "isparta cover --dir coverage --report text --report html test/tests.js",
     "check": "npm run -s lint && npm run -s cover",
-    "build": "babel -d es5 lib",
+    "build": "babel --presets es2015 -d es5 lib",
     "precommit": "npm run -s check && npm run -s build"
   },
   "dependencies": {
@@ -25,14 +25,14 @@
   },
   "devDependencies": {
     "babel-cli": "6.9.0",
-    "babel-core": "6.9.0",
+    "babel-core": "6.9.1",
     "babel-eslint": "6.0.4",
     "babel-preset-es2015": "6.9.0",
-    "eslint": "2.10.2",
+    "eslint": "2.12.0",
     "isparta": "4.0.0",
-    "scar": "0.10.1"
+    "scar": "0.11.0"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   }
 }
