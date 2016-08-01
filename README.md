@@ -3,7 +3,7 @@
 [![license][license-img]][github] [![github][github-img]][github] [![npm][npm-img]][npm]  
 [![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm] [![dependencies status][gemnasium-img]][gemnasium] [![build status][travis-img]][travis]
 
-Preprocessor to include one JavaScript/CSS file into another JavaScript/CSS file.
+Preprocessor to include one JavaScript file into another JavaScript file.
 
 
 ## Include Syntax
@@ -12,12 +12,6 @@ JavaScript
 ~~~
 // @include "some/file.js"
 // @include 'some/other/file.js'
-~~~
-
-CSS
-~~~
-// @include "some/file.css"
-// @include 'some/other/file.css'
 ~~~
 
 Those lines will be replaced with the content of the target files. The lookup
