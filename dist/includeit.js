@@ -18,17 +18,17 @@ var DEFAULTS = {
     charset: 'utf-8'
 };
 
-var throwError = function throwError(message, stack, file, line, column) {
+var throw_err = function throw_err(message, stack, file, line, column) {
     var err = new Error();
     err.message = message;
-    err.includeStack = stack;
+    err.inc_stack = stack;
     err.file = file;
     err.line = line;
     err.column = column;
     throw err;
 };
 
-var findPos = function findPos(content, match) {
+var find_pos = function find_pos(content, match) {
     var pos = content.indexOf(match);
 
     content = content.slice(0, pos);
@@ -40,7 +40,7 @@ var findPos = function findPos(content, match) {
     };
 };
 
-var pathsForGlob = function pathsForGlob(pattern) {
+var paths_for_glob = function paths_for_glob(pattern) {
     return glob(pattern, GLOB_OPTIONS).map(function (filepath) {
         return path.resolve(filepath);
     });
@@ -48,28 +48,28 @@ var pathsForGlob = function pathsForGlob(pattern) {
 
 var recursion = function recursion(settings, stack, file, content) {
     if (stack.indexOf(file) >= 0) {
-        throwError('circular reference: "' + file + '"', stack);
+        throw_err('circular reference: "' + file + '"', stack);
     }
     stack.push(file);
 
     content = content.replace(RE_INCLUDE, function (match, indent, quote, reference) {
-        var refPattern = path.normalize(path.resolve(path.dirname(file), reference));
-        var refPaths = pathsForGlob(refPattern);
-        if (refPaths.length === 0) {
-            var pos = findPos(content, match);
-            throwError('not found: "' + reference + '"', stack, file, pos.line, pos.column);
+        var ref_pattern = path.normalize(path.resolve(path.dirname(file), reference));
+        var ref_paths = paths_for_glob(ref_pattern);
+        if (ref_paths.length === 0) {
+            var pos = find_pos(content, match);
+            throw_err('not found: "' + reference + '"', stack, file, pos.line, pos.column);
         }
 
-        return refPaths.map(function (refPath) {
-            var refContent = fs.readFileSync(refPath, settings.charset);
-            refContent = refContent.replace(RE_ENDS_FAIL_SAFE, function (_, whiteEnd) {
-                return ';' + whiteEnd;
+        return ref_paths.map(function (ref_path) {
+            var ref_content = fs.readFileSync(ref_path, settings.charset);
+            ref_content = ref_content.replace(RE_ENDS_FAIL_SAFE, function (_, white_end) {
+                return ';' + white_end;
             });
-            refContent = recursion(settings, stack, refPath, refContent);
-            refContent = indent + refContent.replace(/\n/g, '\n' + indent);
-            refContent = refContent.replace(RE_EMPTY_LINE, '');
+            ref_content = recursion(settings, stack, ref_path, ref_content);
+            ref_content = indent + ref_content.replace(/\n/g, '\n' + indent);
+            ref_content = ref_content.replace(RE_EMPTY_LINE, '');
 
-            return refContent;
+            return ref_content;
         }).join('\n\n');
     });
 
@@ -81,7 +81,7 @@ var includeit = function includeit(options) {
     var settings = Object.assign({}, DEFAULTS, options);
 
     if (!settings.file || !settings.content) {
-        throwError('file and/or content undefined');
+        throw_err('file and/or content undefined');
     }
 
     return recursion(settings, [], settings.file, settings.content);
