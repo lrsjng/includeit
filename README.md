@@ -1,7 +1,7 @@
 # includeit
 
 [![license][license-img]][github] [![github][github-img]][github] [![npm][npm-img]][npm]  
-[![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm] [![dependencies status][gemnasium-img]][gemnasium] [![build status][travis-img]][travis]
+[![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm] [![build status][travis-img]][travis]
 
 Preprocessor to include one JavaScript file into another JavaScript file.
 
@@ -51,7 +51,7 @@ options = {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 Lars Jung (https://larsjung.de)
+Copyright (c) 2019 Lars Jung (https://larsjung.de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -74,7 +74,6 @@ THE SOFTWARE.
 
 [github]: https://github.com/lrsjng/includeit
 [npm]: https://www.npmjs.org/package/includeit
-[gemnasium]: https://gemnasium.com/lrsjng/includeit
 [travis]: https://travis-ci.org/lrsjng/includeit
 
 [license-img]: https://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
@@ -83,5 +82,4 @@ THE SOFTWARE.
 
 [npm-v-img]: https://img.shields.io/npm/v/includeit.svg?style=flat-square
 [npm-dm-img]: https://img.shields.io/npm/dm/includeit.svg?style=flat-square
-[gemnasium-img]: https://img.shields.io/gemnasium/lrsjng/includeit.svg?style=flat-square
 [travis-img]: https://img.shields.io/travis/lrsjng/includeit.svg?style=flat-square
