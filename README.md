@@ -3,7 +3,7 @@
 [![license][license-img]][github] [![github][github-img]][github] [![npm][npm-img]][npm]  
 [![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm] [![build status][travis-img]][travis]
 
-Preprocessor to include one JavaScript file into another JavaScript file.
+Preprocessor to include (copy) files into other files.
 
 
 ## Include Syntax
