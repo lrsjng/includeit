@@ -1,7 +1,7 @@
 {
   "name": "includeit",
   "displayName": "includeit",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Preprocessor to include files into other files.",
   "homepage": "https://github.com/lrsjng/includeit",
   "bugs": "https://github.com/lrsjng/includeit/issues",
@@ -15,14 +15,18 @@
   "scripts": {
     "lint": "eslint .",
     "test": "node test",
+    "cover": "nyc --require @babel/register --reporter text --reporter html node test",
     "precommit": "npm run -s lint && npm run -s test"
   },
   "dependencies": {
     "glob": "7.1.3"
   },
   "devDependencies": {
+    "@babel/core": "7.4.4",
+    "@babel/register": "7.4.4",
     "eslint": "5.16.0",
-    "scar": "1.6.0"
+    "nyc": "14.0.0",
+    "scar": "1.7.0"
   },
   "engines": {
     "node": ">=11.0.0"
