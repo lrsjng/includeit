@@ -1,9 +1,8 @@
 {
   "name": "includeit",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "Preprocessor to include files into other files.",
   "homepage": "https://github.com/lrsjng/includeit",
-  "bugs": "https://github.com/lrsjng/includeit/issues",
   "author": "Lars Jung <lrsjng@gmail.com> (https://larsjung.de)",
   "license": "MIT",
   "repository": {
@@ -18,16 +17,13 @@
     "precommit": "npm run -s lint && npm run -s test"
   },
   "dependencies": {
-    "glob": "7.1.3"
+    "glob": "7.1.6"
   },
   "devDependencies": {
-    "@babel/core": "7.4.4",
-    "@babel/register": "7.4.4",
-    "eslint": "5.16.0",
-    "nyc": "14.1.0",
-    "scar": "2.2.0"
-  },
-  "engines": {
-    "node": ">=11.0.0"
+    "@babel/core": "7.10.5",
+    "@babel/register": "7.10.5",
+    "eslint": "7.5.0",
+    "nyc": "15.1.0",
+    "scar": "2.3.0"
   }
 }
