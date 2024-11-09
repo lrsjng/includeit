@@ -1,18 +1,16 @@
 # includeit
 
 [![license][license-img]][github] [![github][github-img]][github] [![npm][npm-img]][npm]  
-[![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm]
 
 Preprocessor to include (copy) files into other files.
 
 
 ## Include Syntax
 
-JavaScript
-~~~
+```js
 // @include "some/file.js"
 // @include 'some/other/file.js'
-~~~
+```
 
 Those lines will be replaced with the content of the target files. The lookup
 is always relative to the file containing the `@include` line. Supports
@@ -21,21 +19,21 @@ globbing.
 
 ## Install
 
-~~~sh
+```sh
 > npm install includeit
-~~~
+```
 
 
 ## Usage
 
-~~~javascript
+```js
 var includeit = require('includeit');
 var newContent = includeit(options);
-~~~
+```
 
 with
 
-~~~javascript
+```js
 options = {
     // a full file path for relative lookup (does not need to exist)
     file: undefined,
@@ -45,13 +43,13 @@ options = {
 
     charset: 'utf-8'
 }
-~~~
+```
 
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 Lars Jung (https://larsjung.de)
+Copyright (c) 2024 Lars Jung (https://larsjung.de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -78,6 +76,3 @@ THE SOFTWARE.
 [license-img]: https://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
 [github-img]: https://img.shields.io/badge/github-lrsjng/includeit-a0a060.svg?style=flat-square
 [npm-img]: https://img.shields.io/badge/npm-includeit-a0a060.svg?style=flat-square
-
-[npm-v-img]: https://img.shields.io/npm/v/includeit.svg?style=flat-square
-[npm-dm-img]: https://img.shields.io/npm/dm/includeit.svg?style=flat-square
